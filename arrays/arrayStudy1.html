@@ -12,7 +12,7 @@
     <script>
         let ar1 = new Array();
         let ar2 = [];
-        let ar3 = [1,2,3,4];
+        let ar3 = [11, 221, 13, 74];
 
         console.log(ar1.length);
         console.log(ar2.length);
@@ -26,6 +26,15 @@
 
         arr = 100;
         console.log(ar3[1]);
+
+        ar3.push("a");
+
+        ar3.pop();
+        ar3.shift();
+        ar3.sort(); // 13, 74, 221이 아니라 13,221,74가 나오는 이유는 문자열 값이라서 첫글자로 오름차순 정렬된 것 
+        ar3.reverse();
+
+
 
         for (let i=0; i<ar3.length; i++) {
             console.log(ar3[i]);

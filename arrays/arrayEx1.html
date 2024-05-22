@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="checkbox" name="ch" id="checkAll" onclick="Allcheck()">
+    <input type="checkbox" name="ch" class="check">
+    <input type="checkbox" name="ch" class="check" checked>
+    <input type="checkbox" name="ch" class="check">
+    <input type="checkbox" name="ch" class="check">
+    <button onclick="info()">Click</button>
+
+
+
+    <script>
+
+        const ch = document.getElementsByClassName("check");
+        let ach = document.getElementById("checkAll");
+
+        function info() {
+            for(let i=0; i<ch.length; i++) {
+                console.log(ch[i].checked);
+            }
+
+        }
+
+        ch[1].checked = false;
+
+        function Allcheck() {
+            if (ach.checked == 1) {
+                for(let i=0; i<ch.length; i++) {
+                    ch[i].checked = true;
+                }
+            }
+            else {
+                for(let i=0; i<ch.length; i++) {
+                    ch[i].checked = false;
+                }
+            }
+        }
+
+
+    </script>
+</body>
+</html>
