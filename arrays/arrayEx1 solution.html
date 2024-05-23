@@ -63,21 +63,17 @@
         // 뒤에 4개의 체크중 하나라도 체크가 풀리면 첫번째 모든체크의 체크가 풀리게, 모두 체크가 되면 모든체크도 체크
         for(let i=0; i<check.length; i++) {
             check[i].addEventListener("click", function() {
-                if(check[i].checked == 0){
-                    cnt = -1;
-                }
-                else {
-                    cnt = 1;
-                }
-                check_cnt = check_cnt + cnt;
-                if(check_cnt == check.length) {
-                    checkAll.checked = 1;
-                }
-                else {
-                    checkAll.checked = 0;
+                let flag = true;
+
+                for(let j=0; j<check.length; j++) {
+                    if(!check[j].checked) {
+                        flag = false;
+                        break;
+                    }
                 }
 
-                console.log(check_cnt);
+                checkAll.checked = flag;
+
             });
         }
 
