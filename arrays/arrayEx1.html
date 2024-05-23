@@ -8,7 +8,7 @@
 <body>
     <input type="checkbox" name="ch" id="checkAll" onclick="Allcheck()">
     <input type="checkbox" name="ch" class="check">
-    <input type="checkbox" name="ch" class="check" checked>
+    <input type="checkbox" name="ch" class="check">
     <input type="checkbox" name="ch" class="check">
     <input type="checkbox" name="ch" class="check">
     <button onclick="info()">Click</button>
@@ -20,27 +20,41 @@
         const ch = document.getElementsByClassName("check");
         let ach = document.getElementById("checkAll");
 
+
+        
         function info() {
             for(let i=0; i<ch.length; i++) {
                 console.log(ch[i].checked);
+                ch[i].checked = ach.checked;
             }
 
-        }
+        } // 버튼을 누르면 첫번째 칸 체크를 나머지 칸이 전부 따라가기
 
-        ch[1].checked = false;
 
+
+        // function Allcheck() {
+        //     if (ach.checked == 1) {
+        //         for(let i=0; i<ch.length; i++) {
+        //             ch[i].checked = true;
+        //         }
+        //     }
+        //     else {
+        //         for(let i=0; i<ch.length; i++) {
+        //             ch[i].checked = false;
+        //         }
+        //     }
+        // } // 버튼을 누르지 않아도 첫번째 체크를 누르자마자 나머지 칸이 전부 따라가기
+
+
+
+        // ㅡ> 최적화하기
         function Allcheck() {
-            if (ach.checked == 1) {
-                for(let i=0; i<ch.length; i++) {
-                    ch[i].checked = true;
-                }
+            for(let i=0; i<ch.length; i++) {
+                ch[i].checked = ach.checked;
             }
-            else {
-                for(let i=0; i<ch.length; i++) {
-                    ch[i].checked = false;
-                }
-            }
-        }
+        } // 똑같은 코드를 반복해서 사용하지 않는 방법을 찾는 것
+        
+
 
 
     </script>

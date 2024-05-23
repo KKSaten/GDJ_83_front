@@ -6,27 +6,41 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="url">
-        <img src="../images/parrot1.jpg" width="500px", height="500px">
+    <!-- <div id="url">  -->
+    <!-- innerHTRL 사용법 -->
+    <div>
+        <img src="../images/parrot1.jpg" id="url" width="500px", height="500px">
     </div>
     <button onclick="next()">Next</button>
     
 
     <script>
         let ar = ["parrot1.jpg", "parrot2.jpg", "parrot3.jpg", "parrot4.jpg", "parrot5.jpg"];
-        const url = document.getElementById("url");
+        const url = document.getElementById("url")
         let i = 1;
-
+        
         function next() {
-            console.log("check");
-            let link = '<img src="/images/';
-            link = link + ar[i] + '"width=500px", height="500px">';
-            url.innerHTML = link;
+            url.src = "/images/" + ar[i];    
             i++;
             if (i == 5) {
                 i = 0;
             }
-        }
+        } // src 속성값 이용하기
+        
+        
+        // const url = document.getElementById("url");
+        // function next() {
+        //     console.log("check");
+        //     let link = '<img src="/images/';
+        //     link = link + ar[i] + '"width=500px", height="500px">';
+        //     url.innerHTML = link;
+        //     i++;
+        //     if (i == 5) {
+        //         i = 0;
+        //     }
+        // } // innrHTML 이용하기
+
+
 
 
     </script>
