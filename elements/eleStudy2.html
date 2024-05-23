@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="result">
+        <!-- <div>
+            <input type="checkbox"> 바나나
+        </div> --> <!-- element 추가를 이용해 요런 형태로 만들어 보자 -->
+    </div>
+    
+
+    <script>
+        const ar = ["바나나", "수박", "참외", "사과", "망고"];
+        const result = document.getElementById("result");
+        
+        
+        for(let m=0; m<ar.length; m++) {
+            
+            //<div></div>
+            let d = document.createElement("div");
+
+            //<input>
+            let i = document.createElement("input");
+
+            //type = "checkbox"
+            let t = document.createAttribute("type");
+            t.value="checkbox";
+
+            //<input type = "checkbox">
+            i.setAttributeNode(t);
+
+            //<div> <input type = "checkbox"> </div>
+            d.appendChild(i);
+
+
+            //<span></span>
+            i = document.createElement("span");
+
+            let tx = document.createTextNode(ar[m]);
+
+            //<span> ar[m] </span>
+            i.appendChild(tx);
+
+            //<div>
+            //  <input type = "checkbox"> <span> ar[i] </span>
+            //</div>
+            d.appendChild(i);
+
+            //<div id = "result">
+            //  <div>
+            //      <input type = "checkbox"> <span> ar[i] </span>
+            //  </div>
+            //</div>
+            result.append(d);
+        }
+
+        
+
+
+    </script>
+</body>
+</html>
