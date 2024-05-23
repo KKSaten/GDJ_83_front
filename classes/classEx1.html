@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .c2 {
+            border : 2px solid red;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <input type="text" class="c1">
+    </div>
+    <div >
+        <input type="text" class="c1">
+    </div>
+    <div >
+        <input type="text" class="c1">
+    </div>
+    <div>
+        <input type="text" class="c1">
+    </div>
+    <div>
+        <button onclick="border()">Click</button>
+    </div>
+
+    <script>
+        //버튼을 클릭했을 때
+        //input 요소의 값이 비어 있으면 빨간색 테두리 주기
+        //값이 있으면 원래대로
+
+        let c1 = document.getElementsByClassName("c1");
+
+        function border() {
+            console.log("test" + c1[0].value);
+
+            for(let i=0; i<c1.length; i++) {
+                if (c1[i].value == "") {
+                    c1[i].classList.add("c2");
+                }
+                else {
+                    c1[i].classList.remove("c2");
+                }
+            }
+
+
+        }
+
+    </script>
+
+</body>
+</html>

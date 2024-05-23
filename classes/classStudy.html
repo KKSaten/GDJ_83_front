@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .c1 {
+            width : 100px;
+            height: 100px;
+            border : 2px solid black;
+        }
+        .c2 {
+            background-color: red;
+        }
+        .c3 {
+            width : 200px;
+            height: 100px;
+            border : 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="c1 c2"></div>
+    <button onclick="addClass()">Click</button>
+
+
+
+    <script>
+        let c1 = document.getElementsByClassName("c1");
+
+        function addClass() {
+            console.log("test");
+            // console.log(c1[0].classList);
+            console.log(c1[0].classList[1]);
+
+            // c1.class = cl.class + " c2";
+            // 이게 틀린 이유는 c1은 클래스라서 여러 데이터를 가지기 떄문에
+            // 배열임. 즉 c1[0]으로 사용해야함
+
+            // c1[0].class = c1[0].class + " c2";
+            // 하지만 이것도 틀린 이유는 class는 .class로 쓸 수 없다
+            // class라는 예약어 자체가 이미 존재하기 때문
+
+            //클래스명 전체 변경
+            // c1[0].className = "c3";
+
+            //여러 클래스를 가진 태그의 클래스 하나만 수정하기
+            c1[0].classList.replace("c1", "c3"); //c1 클래스를 c3로 변경
+            //이걸 주석처리 하지 않으면 아래 코드들이 오류를 일으키는데
+            //element를 가져오는데 쓰인 c1 정의가 c1 클래스네임을 가리켜 가져오는 것이라서
+            //c1이 c3으로 바뀌어버리면 c1이 없어져 가져올 수 없어지기 때문이다.
+
+            //클래스명이 있으면 삭제, 없으면 추가
+            c1[0].classList.toggle("c2");
+
+
+
+        }
+
+    </script>
+    
+</body>
+</html>
