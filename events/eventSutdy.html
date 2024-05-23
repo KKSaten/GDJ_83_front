@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<button id = "btn">>Click</button>
+<button id = "btn2">>Click</button>
+<button id = "btn3">>Click</button>
+
+
+<script>
+    const btn = document.getElementById("btn");
+    const btn2 = document.getElementById("btn2");
+    const btn3 = document.getElementById("btn3");
+
+    btn.onclick = function () {
+        console.log("test");
+    }
+
+    // btn2.onclick = go(); 이거 안돼...
+    // btn2.onclick = go;
+    // 익명함수 사용
+    btn2.onclick = function() {
+        go();
+    } 
+
+    btn3.addEventListener("click", function() {
+        console.log("btn3") //온클릭보다는 애드이벤트 리스터를 좀 더
+    });
+
+    function go() {
+        console.log("go");
+    }
+
+</script>
+
+</body>
+</html>

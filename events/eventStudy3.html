@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        .bg {
+            background-color: #c1c1c1;
+        }
+    </style>
+</head>
+<body>
+
+    <form id="frm">
+        <input id="id1" type="text">
+        <input id="id2" type="text">
+        <input type="reset" value="RESET">
+        <button type="reset">RESET</button>
+    </form>
+    <!-- <input type="reset" value="RESET">
+    <button type="reset">RESET</button> -->
+    <!-- form 밖에 있으면 reset 기능이 없어지고 그냥 버튼이 되어버림 -->
+    <!-- form 밖에서 쓰고싶으면 기존처럼 script에서 만들어야함 -->
+
+
+    <script>
+        const id1 = document.getElementById("id1");
+        const id2 = document.getElementById("id2");
+
+        id1.addEventListener("keydown", function() {
+            console.log("keydown");
+        });
+
+        id1.addEventListener("focus", function(){
+            id1.classList.add("bg");
+        });
+
+        id1.addEventListener("blur", function() {
+            id1.classList.remove("bg");
+        });
+
+        id2.addEventListener("change", function() {
+            console.log("내용이 변경됨");
+        });
+    </script>
+    
+</body>
+</html>
