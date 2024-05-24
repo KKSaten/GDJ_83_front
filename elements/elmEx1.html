@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div>
+        <input type="checkbox" id="Allcheck">
+        <button id="delete">Delete</button>
+    </div>
+    <div class="mails" id="mail1" mail-num="1">
+        <input type="checkbox" class="check">
+        <span>mail title1</span>
+    </div>
+    <div class="mails" id="mail2" mail-num="2">
+        <input type="checkbox" class="check">
+        <span>mail title2</span>
+    </div>
+    <div class="mails" id="mail3" mail-num="3">
+        <input type="checkbox" class="check">
+        <span>mail title3</span>
+    </div>
+    <div class="mails" id="mail4" mail-num="4">
+        <input type="checkbox" class="check">
+        <span>mail title4</span>
+    </div>
+    <div class="mails" id="mail5" mail-num="5">
+        <input type="checkbox" class="check">
+        <span>mail title5</span>
+    </div>
+    <div class="mails" id="mail6" mail-num="6">
+        <input type="checkbox" class="check">
+        <span>mail title6</span>
+    </div>
+
+
+
+    <script>
+        const checkAll = document.getElementById("Allcheck");
+        const mails = document.getElementsByClassName("mails");
+        const del_btn = document.getElementById("delete");
+        const check = document.getElementsByClassName("check");
+
+
+        checkAll.addEventListener("click", function() {
+            for(let i=0; i<check.length; i++) {
+                check[i].checked = checkAll.checked;
+            }
+        });
+
+
+        
+        del_btn.addEventListener("click", function () {
+            let ar = [];
+            for(let i=0; i<mails.length; i++) {
+                if (check[i].checked) {
+                    ar.push("mail" + mails[i].getAttribute("mail-num"));
+                };
+            };
+            
+            for(let i=0; i<ar.length; i++){
+                document.getElementById(ar[i]).remove();
+            }
+        })
+
+
+
+    </script>
+</body>
+</html>

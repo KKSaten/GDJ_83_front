@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="divs" id="div1">
+        <h3>1</h3>
+        <button class="btns" id="btn1" data-del-num="1">Click</button>
+    </div>
+    <div class="divs" id="div2">
+        <h3>2</h3>
+        <button class="btns" id="btn2" data-del-num="2">Click</button>
+    </div>
+    <div class="divs" id="div3">
+        <h3>3</h3>
+        <button class="btns" id="btn3" data-del-num="3">Click</button>
+    </div>
+    <div class="divs" id="div4">
+        <h3>4</h3>
+        <button class="btns" id="btn4" data-del-num="4">Click</button>
+    </div>
+
+
+    <script>
+        const divs = document.getElementsByClassName("divs");
+        const btns = document.getElementsByClassName("btns");
+
+        // for(let i=0; i<btns.length; i++) {
+        //     btns[i].addEventListener("click", function () {
+        //         console.log(this);
+        //         console.log(this.id);
+        //         console.log(btns_length);
+        //         divs[i].remove(); // 이 함수가 고장난 이유는
+        //                           // element가 삭제되면서 btns.length의 값이 바뀌고,
+        //                           // divs[i]의 배열 순서가 바뀌기 때문이다.
+        //     });
+        // }
+
+        for(let i=0; i<btns.length; i++) {
+            btns[i].addEventListener("click", function () {
+                console.log(this); //this : 클릭한 자기 자신을 가리키는 변수
+                console.log(this.id);
+                // console.log(this.data-del-num); // 얘는 안됨
+                console.log(this.getAttribute("data-del-num"));
+                document.getElementById("div"+this.getAttribute("data-del-num")).remove();
+            });
+        }
+
+
+    </script>
+</body>
+</html>
