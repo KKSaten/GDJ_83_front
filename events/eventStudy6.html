@@ -15,19 +15,29 @@
     
     <script>
         const add = document.getElementById("add");
+        const result = document.getElementById("result");
+        let count = 0;
 
         add.addEventListener("click", function () {
+            let d = document.createElement("div");
+            d.id = "a" + count;
+
             let i = document.createElement("input");
             i.type = "checkbox"
             i.classList.add("ch");
+
+            let a = document.createAttribute("data-del-num");
+            a.value = "a" + count;
             
             result.append(i);
+
+            count++;
 
         });
 
         result.addEventListener("click", function(e) {
             if (e.target.classList.contains("ch")) {
-
+                //실힝해야할 코드 작성
             }
         });
 
