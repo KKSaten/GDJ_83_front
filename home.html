@@ -6,8 +6,8 @@
     <title>Document</title>
 
     <style>
-        span {
-            text-decoration: line-through;
+        .deco {
+            text-decoration: 3px line-through;
         }
 
     </style>
@@ -18,31 +18,91 @@
 
     <div>
         <!-- 할 일 적고 버튼을 클릭하면 등록 -->
-        <input type="text">
-        <button>Add</button>
+        <input type="text" id="do_input">
+        <button id="add_btn">Add</button>
     </div>
 
-    <div>
-        <!-- 클릭하면 체크박스에 체크된 목록을 삭제 -->
-        <div>
-            <button>휴지통</button>
-        </div>
-        
-
+    <div id="div1">
         <!-- 체크 박스에 체크하면 선이 생김 -->
         <!-- 체크 해제하면 선이 사라짐 -->
-        <div>
+        <!-- <div>
             <input type="checkbox">
             <span>게임하기</span>
-        </div>
+        </div> -->
 
+
+        <!-- 클릭하면 체크박스에 체크된 목록을 삭제 -->
         <div>
-            <input type="checkbox">
-            <span>밥먹기</span>
+            <button id="del_btn">휴지통</button>
         </div>
     </div>
+    
+<script>
+    const do_input = document.getElementById("do_input");
+    const add_btn = document.getElementById("add_btn");
+    const del_btn = document.getElementById("del_btn");
+    const div1 = document.getElementById("div1");
+
+    add_btn.addEventListener("click", function() {
+        console.log("add_btn");
+
+        let div_div = document.createElement("div");
+        div_div.classList.add("div_div");
+
+        let input = document.createElement("input");
+        // let type = document.createElement("type");
+        // type.value = "checkbox";
+        // input.setAttributeNode(type);
+        input.type = "checkbox";
+        input.classList.add("check");
+
+        //<div><input type="checkbox"></div>
+        div_div.appendChild(input);
 
 
+        let spans = document.createElement("span");
+        spans.classList.add("span");
+        let do_list = document.createTextNode(do_input.value);
+
+        //<span>할 일</span>
+        spans.appendChild(do_list);
+
+        //<div><input type="checkbox"><span>할 일</span></div>
+        div_div.appendChild(spans);
+
+        div1.append(div_div);
+
+        do_input.value = ""; // 입력칸 비우기
+
+
+
+        //체크박스
+        const check = document.getElementsByClassName("check");
+        const span = document.getElementsByClassName("span");
+    
+        for(let i=0; i<check.length; i++) {
+            check[i].addEventListener("click", function() {
+                if(check[i].checked) {
+                    span[i].classList.add("deco");
+                }
+                else {
+                    span[i].classList.remove("deco");
+                }
+                
+            });
+        }
+
+        const small_div = document.getElementsByClassName("div_div");
+        del_btn.addEventListener("click", function() {
+            for(let i=0; i<check.length; i++) {
+                if(check[i].checked) {
+                    small_div[i].remove();
+                }
+            }
+        });
+    });
+
+</script>
 
 </body>
 </html>

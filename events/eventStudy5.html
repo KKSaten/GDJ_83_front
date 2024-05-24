@@ -28,6 +28,8 @@
 
 
     result.addEventListener("click", function(e) {
+        console.log(e);
+        //e.target : button element = document.getElement의 결과물과 같다
         if (e.target.classList.contains("btns")) {
             go();
         }
