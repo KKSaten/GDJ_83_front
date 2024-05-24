@@ -54,13 +54,17 @@
 
         
         del_btn.addEventListener("click", function () {
+            
             let ar = [];
+
+            //삭제할 id명들을 따로 보관
             for(let i=0; i<mails.length; i++) {
                 if (check[i].checked) {
                     ar.push("mail" + mails[i].getAttribute("mail-num"));
                 };
             };
             
+            //보관된 id를 꺼내서 삭제
             for(let i=0; i<ar.length; i++){
                 document.getElementById(ar[i]).remove();
             }
